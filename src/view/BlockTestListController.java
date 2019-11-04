@@ -4,11 +4,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
-import javafx.scene.input.MouseEvent;
 import model.model.BlockTest;
 import model.model.Data;
 import model.modelController.ModelController;
@@ -55,6 +53,7 @@ public class BlockTestListController implements Initializable {
             ModelController.selectedBocktestId = list.getSelectionModel().getSelectedIndex();
             new SceneSaver().setBlockTestScreenFXML();
             SceneSaver.SECOND_STAGE.hide();
+            ChiqishSaqlashDialogi.changed();
         }
     }
 
