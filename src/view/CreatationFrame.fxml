@@ -58,6 +58,7 @@
             <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
          </padding>
          <children>
+            <Button mnemonicParsing="false" onAction="#nextScreen" text="Keyingi" />
             <Button id="btnDelGroup" mnemonicParsing="false" onAction="#delGroup" text="O'chirish" />
          </children>
       </VBox>

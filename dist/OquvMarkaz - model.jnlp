@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="OquvMarkaz.jnlp">
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="OquvMarkaz - model.jnlp">
   <information>
-    <title>OquvMarkaz</title>
+    <title>OquvMarkaz - model</title>
     <vendor>User</vendor>
     <description>null</description>
     <offline-allowed/>
@@ -11,14 +11,14 @@
   </resources>
   <resources>
     <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
-    <jar href="OquvMarkaz.jar" size="14244" download="eager" />
+    <jar href="OquvMarkaz_-_model.jar" size="37559" download="eager" />
   </resources>
 <security>
   <all-permissions/>
 </security>
-  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="OquvMarkaz" >
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="OquvMarkaz - model" >
     <param name="requiredFXVersion" value="2.2+"/>
   </applet-desc>
-  <jfx:javafx-desc  width="800" height="600" main-class="view.OquvMarkaz"  name="OquvMarkaz" />
+  <jfx:javafx-desc  width="800" height="600" main-class="view.OquvMarkaz"  name="OquvMarkaz - model" />
   <update check="always"/>
 </jnlp>

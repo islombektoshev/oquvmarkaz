@@ -9,12 +9,16 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.TextFieldListCell;
+import javafx.util.StringConverter;
 import model.model.Data;
 import model.model.Group;
-import model.modelController.IdScanner;
 import model.model.Subject;
+import model.modelController.ModelController;
 
 public class CreatationFrameController implements Initializable {
+
+    ModelController mc = new ModelController();
 
     public static ObservableList<Group> groups = FXCollections.observableArrayList();
     public static ObservableList<Subject> subjects = FXCollections.observableArrayList();
@@ -30,74 +34,87 @@ public class CreatationFrameController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        groups.clear();
+        subjects.clear();
+        groups.addAll(mc.getGroups());
+        subjects.addAll(mc.getSubjects());
         grouplist.setItems(groups);
         subjectlist.setItems(subjects);
-    }
+        
+        subjectlist.setEditable(true);
+        subjectlist.setCellFactory(TextFieldListCell.forListView(new StringConverter<Subject>() {
 
+            @Override
+            public String toString(Subject object) {
+                return object.getSubjectName();
+            }
+
+            @Override
+            public Subject fromString(String string) {
+                subjectlist.getSelectionModel().getSelectedItem().setSubjectName(string);
+                return subjectlist.getSelectionModel().getSelectedItem();
+            }
+        }));
+        
+        
+        grouplist.setEditable(true);
+        grouplist.setCellFactory(TextFieldListCell.forListView(new StringConverter<Group>() {
+            @Override
+            public String toString(Group object) {
+                return object.getGroupName();
+            }
+
+            @Override
+            public Group fromString(String string) {
+                 grouplist.getSelectionModel().getSelectedItem().setGroupName(string);
+                 return grouplist.getSelectionModel().getSelectedItem();
+            }
+        }));
+    }
+    
     @FXML
     private void delSbj(ActionEvent event) {
         if (subjectlist.getSelectionModel().getSelectedIndex() > -1) {
-            
-            int i = subjectlist.getSelectionModel().getSelectedIndex();
-            int id = subjectlist.getSelectionModel().getSelectedItem().getSubjectId();
-            
-            subjects.remove(i);
-            Data.subjects.remove(IdScanner.getIndexbyIdSubjet(id));
+            mc.deletSubject(subjectlist.getSelectionModel().getSelectedItem());
+            subjects.clear();
+            subjects.addAll(Data.subjects);
+
         }
     }
 
     @FXML
     private void addsbj(ActionEvent event) {
-        // AGAR LISTDA BOR BO'LSA QOSHIMAYDI YANI RUTURN BILAN CHIQIB KETADI
-        boolean isAdd = true;
-        for (Subject x : Data.subjects) {
-            isAdd &= !x.getSubjectName().equalsIgnoreCase(tfsubject.getText());
-        }
-        if (!isAdd || tfsubject.getText().isEmpty()) {
-            return;
-        }
-        
-        
-        //BO'SH IDGA QO'SHADI
-        int emptyId = IdScanner.getEmptySubjectId();
 
-        Data.subjects.add(emptyId, new Subject(tfsubject.getText(), emptyId));
-        subjects.add(Data.subjects.get(emptyId));
-        
-        tfsubject.clear();
+            if (mc.addSubject(new Subject(tfsubject.getText()))) {
+                subjects.clear();
+                subjects.addAll(Data.subjects);
+                tfsubject.clear();
+        }
 
     }
 
     @FXML
     private void delGroup(ActionEvent event) {
         if (grouplist.getSelectionModel().getSelectedIndex() > -1) {
-            
-            int i = grouplist.getSelectionModel().getSelectedIndex();
-            int id = grouplist.getSelectionModel().getSelectedItem().getGroupId();
-            
-            groups.remove(i);
-            Data.groups.remove(IdScanner.getIndexbyIdGroup(id));
+            mc.deletGroup(grouplist.getSelectionModel().getSelectedItem());
+            groups.clear();
+            groups.addAll(Data.groups);
+
         }
     }
 
     @FXML
     private void addGroup(ActionEvent event) {
-        // AGAR LISTDA BOR BO'LSA QOSHIMAYDI YANI RUTURN BILAN CHIQIB KETADI
-        boolean isAdd = true;
-        for (Group x : Data.groups) {
-            isAdd &= !x.getGroupName().equalsIgnoreCase(tfgroup.getText());
-        }
-        if (!isAdd || tfgroup.getText().isEmpty()) {
-            return;
-        }
         
-        
-        //BO'SH IDGA QO'SHADI
-        int emptyId = IdScanner.getEmptyGroupId();
+            if (mc.addGroup(new Group(tfgroup.getText()))) {
+                groups.clear();
+                groups.addAll(Data.groups);
+                tfgroup.clear();
+        }
+    }
 
-        Data.groups.add(emptyId, new Group(tfgroup.getText(), emptyId));
-        groups.add(Data.groups.get(emptyId));
-        
-        tfgroup.clear();
+    @FXML
+    private void nextScreen(ActionEvent event) {
+       SceneController.setScene(getClass().getResource("ScondScreen.fxml"));
     }
 }

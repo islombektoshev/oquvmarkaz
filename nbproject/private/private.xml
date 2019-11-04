@@ -3,12 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/markazmalumotlari.xml</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/src/view/CreatationFrameController.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/src/view/OquvMarkaz.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/src/model/model/Subject.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/src/model/model/IdScanner.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/src/model/XMLproccesing/ReadData.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/ScondScreenController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/SceneController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/OquvMarkaz.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/CreatationFrameController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/model/model/Student.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/model/modelController/ModelController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/SceneSaver.java</file>
         </group>
     </open-files>
 </project-private>
