@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<GridPane hgap="10.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="727.0" vgap="10.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="view.BlockTestListController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="463.20001220703125" minWidth="10.0" prefWidth="431.20001220703125" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="278.39996337890625" minWidth="10.0" prefWidth="136.79998779296875" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="85.0" spacing="30.0" GridPane.columnIndex="1" GridPane.rowSpan="3">
+         <children>
+            <Button minWidth="100.0" mnemonicParsing="false" onAction="#ochish" text="Ochish" />
+            <Button alignment="TOP_LEFT" minWidth="100.0" mnemonicParsing="false" onAction="#yangiblocktest" text="Yangi yaratish" textAlignment="CENTER" />
+            <Button alignment="CENTER" minWidth="100.0" mnemonicParsing="false" onAction="#ochirish" text="O'chirish" textAlignment="CENTER" textOverrun="CENTER_ELLIPSIS" />
+         </children>
+         <padding>
+            <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+         </padding>
+      </VBox>
+      <ListView fx:id="list" prefHeight="200.0" prefWidth="200.0" GridPane.rowSpan="4" />
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</GridPane>

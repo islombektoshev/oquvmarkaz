@@ -56,6 +56,7 @@ public class CreatationFrameController implements Initializable {
                 return subjectlist.getSelectionModel().getSelectedItem();
             }
         }));
+        
 
         grouplist.setEditable(true);
         grouplist.setCellFactory(TextFieldListCell.forListView(new StringConverter<Group>() {
@@ -137,4 +138,6 @@ public class CreatationFrameController implements Initializable {
     private void nextScreen(ActionEvent event) {
         SceneController.setScene(getClass().getResource("ScondScreen.fxml"));
     }
+
+
 }

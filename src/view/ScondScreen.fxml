@@ -72,6 +72,7 @@
             <Menu mnemonicParsing="false" text="Tahrir">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#miFanGruh" text="Fanlar va gruhlarni tahrirlah" />
+                  <MenuItem mnemonicParsing="false" onAction="#openBlockTest" text="Bloktestlar" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Haqida">
@@ -92,7 +93,7 @@
             </HBox>
             <TextField fx:id="tfSearch" onAction="#filtrla" prefHeight="25.0" prefWidth="215.0" promptText="Qidirish" />
             <TextField fx:id="tfIsm" onAction="#addStudent" promptText="Ismni kiriting" />
-            <TextField fx:id="tfFam" onDragDetected="#addStudent" promptText="Familyani krirting" />
+            <TextField fx:id="tfFam" onAction="#addStudent" promptText="Familyani krirting" />
             <Button mnemonicParsing="false" onAction="#addStudent" prefHeight="26.0" prefWidth="86.0" text="Qo'shish" />
             <Button mnemonicParsing="false" onAction="#deletStudent" prefHeight="26.0" prefWidth="86.0" text="O'chirish" />
             <Button mnemonicParsing="false" onAction="#deletAll" prefHeight="26.0" prefWidth="248.0" text="Barchasini O'chirish" />

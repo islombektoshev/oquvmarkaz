@@ -121,7 +121,7 @@ public class ChiqishSaqlashDialogi {
         s.setTitle("Chiqish");
         s.show();
     }
-
+//4239
     public static void setDefault() {
         delta = 0;
     }

@@ -4,11 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/ScondScreenController.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/SceneController.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/OquvMarkaz.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/ScondScreen.fxml</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/model/modelController/ModelController.java</file>
-            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/defaultdata.mdf</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/BlockTestListController.java</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/BlockTestScreen.fxml</file>
+            <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/BlockTestScreenController.java</file>
             <file>file:/C:/Users/User/Documents/NetBeansProjects/OquvMarkaz/OquvMarkaz%20-%20model/src/view/SceneSaver.java</file>
         </group>
     </open-files>

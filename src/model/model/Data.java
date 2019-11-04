@@ -13,6 +13,6 @@ public class Data {
     
     public static List<Student> students = new ArrayList<>();
     public static List<Group> groups = new ArrayList<>();
-    public static List<Subject> subjects = new ArrayList<>();
-    
+    public static List<Subject> subjects = new ArrayList<>();    
+    public static List<BlockTest> bockTests = new ArrayList<>();    
 }

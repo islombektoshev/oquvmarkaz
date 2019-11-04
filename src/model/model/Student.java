@@ -5,13 +5,15 @@
  */
 package model.model;
 
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import model.modelController.ModelController;
 
 /**
  *
  * @author User
  */
-public class Student implements Comparable<Student> {
+public class Student implements Comparable<Student> ,Cloneable{
 
     private int studentId = -1;
     private int sbId1 = -1;
@@ -183,6 +185,7 @@ public class Student implements Comparable<Student> {
     }
 
     public Group getGroup() {
+        if(grId<0) return new Group(ModelController.NONE_NAME, -1);
         return Data.groups.get(grId);
     }
 
@@ -220,5 +223,15 @@ public class Student implements Comparable<Student> {
 
     public void setGrId(int grId) {
         this.grId = grId;
+    }
+
+    @Override
+    public Object clone()  {
+        try { 
+            return super.clone();
+        } catch (CloneNotSupportedException ex) {
+            Logger.getLogger(Student.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return new Abiturient(studentId, name, surename, sbId1, sbId2, sbId3, grId, tel);
     }
 }

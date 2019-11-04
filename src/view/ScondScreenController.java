@@ -1,13 +1,10 @@
 package view;
 
 import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Pattern;
 import javafx.beans.InvalidationListener;
 import javafx.beans.Observable;
@@ -61,6 +58,7 @@ public class ScondScreenController implements Initializable {
     private TableColumn<Student, Subject> tcSb3;
     @FXML
     private TableColumn<Student, Group> tcGr;
+    
     @FXML
     private TextField tfIsm;
     @FXML
@@ -101,11 +99,23 @@ public class ScondScreenController implements Initializable {
                 }
             }
         });
+        List<Group> groups = new ArrayList<>();
+        List<Subject> subjects = new ArrayList<>();
+        
+        groups.add(Data.groups.get(0));
+        groups.add(Data.groups.get(1));
+        groups.add(Data.groups.get(2));
+        
+        subjects.add(Data.subjects.get(0));
+        subjects.add(Data.subjects.get(1));
+        subjects.add(Data.subjects.get(4));
+        
 
     }
 
     @FXML
     public void saqalash(ActionEvent event) {
+        ChiqishSaqlashDialogi.setDefault();
         mc.saveDocument();
     }
 
@@ -361,4 +371,13 @@ public class ScondScreenController implements Initializable {
     private void chiqish(ActionEvent event) {
         ChiqishSaqlashDialogi.showWithCancel();
     }
+
+    @FXML
+    private void openBlockTest(ActionEvent event) {
+        new SceneSaver().setBlocktestListFXML();
+    }
+
+//    @FXML
+//    private void addStudent(MouseEvent  event) {
+//    }
 }
