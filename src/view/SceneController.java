@@ -13,7 +13,8 @@ import javafx.scene.Scene;
  * @author User
  */
 public class SceneController {
-    public static void setScene(URL url){
+
+    public static void setScene(URL url) {
         try {
             Parent root = FXMLLoader.load(url);
             Scene scene = new Scene(root);
@@ -22,4 +23,5 @@ public class SceneController {
             Logger.getLogger(CreatationFrameController.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }

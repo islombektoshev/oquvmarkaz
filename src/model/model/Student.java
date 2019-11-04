@@ -1,9 +1,8 @@
 /*
  * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
+ * To change this template FILE, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package model.model;
 
 import model.modelController.ModelController;
@@ -12,8 +11,8 @@ import model.modelController.ModelController;
  *
  * @author User
  */
-public class Student implements Comparable<Student>{
-    
+public class Student implements Comparable<Student> {
+
     private int studentId = -1;
     private int sbId1 = -1;
     private int sbId2 = -1;
@@ -26,10 +25,10 @@ public class Student implements Comparable<Student>{
     private String sb2 = model.modelController.ModelController.NONE_NAME;
     private String sb3 = model.modelController.ModelController.NONE_NAME;
     private String gr = model.modelController.ModelController.NONE_NAME;
-    
+
     model.modelController.ModelController mc = new ModelController();
 
-    public Student(int studentId, String name, String surename, int sbId1, int sbId2, int sbId3, int grId,String tel) {
+    public Student(int studentId, String name, String surename, int sbId1, int sbId2, int sbId3, int grId, String tel) {
         this.studentId = studentId;
         this.name = name;
         this.surename = surename;
@@ -39,7 +38,8 @@ public class Student implements Comparable<Student>{
         this.grId = grId;
         this.tel = tel;
     }
-    public Student( String name, String surename, int sbId1, int sbId2, int sbId3, int grId,String tel) {
+
+    public Student(String name, String surename, int sbId1, int sbId2, int sbId3, int grId, String tel) {
         this.studentId = -1;
         this.name = name;
         this.surename = surename;
@@ -50,7 +50,8 @@ public class Student implements Comparable<Student>{
         this.tel = tel;
 
     }
-    public Student( String name, String surename, int sbId1, int sbId2, int sbId3,String tel) {
+
+    public Student(String name, String surename, int sbId1, int sbId2, int sbId3, String tel) {
         this.studentId = -1;
         this.name = name;
         this.surename = surename;
@@ -61,7 +62,8 @@ public class Student implements Comparable<Student>{
         this.tel = tel;
 
     }
-    public Student( String name, String surename, int grId ,String tel) {
+
+    public Student(String name, String surename, int grId, String tel) {
         this.studentId = -1;
         this.name = name;
         this.surename = surename;
@@ -71,7 +73,8 @@ public class Student implements Comparable<Student>{
         this.grId = grId;
         this.tel = tel;
     }
-    public Student( String name, String surename, int grId ) {
+
+    public Student(String name, String surename, int grId) {
         this.studentId = -1;
         this.name = name;
         this.surename = surename;
@@ -81,7 +84,7 @@ public class Student implements Comparable<Student>{
         this.grId = grId;
     }
 
-    public Student( String name, String surename) {
+    public Student(String name, String surename) {
         this.studentId = -1;
         this.name = name;
         this.surename = surename;
@@ -90,9 +93,6 @@ public class Student implements Comparable<Student>{
         this.sbId3 = -1;
         this.grId = -1;
     }
-    
-
-   
 
     @Override
     public String toString() {
@@ -109,21 +109,23 @@ public class Student implements Comparable<Student>{
 //            return false;
 //        }
 //    }
-
     @Override
     public int compareTo(Student o) {
-        return (studentId>o.getStudentId())?1:-1;
+        return (studentId > o.getStudentId()) ? 1 : -1;
     }
-    
+
     public String getTel() {
-        return tel==null?ModelController.NONE_NAME:tel;
+        return tel == null ? ModelController.NONE_NAME : tel;
     }
 
     public void setTel(String tel) {
         this.tel = tel;
-        if(tel==null)this.tel = model.modelController.ModelController.NONE_NAME;
+        if (tel == null) {
+            this.tel = model.modelController.ModelController.NONE_NAME;
+        }
     }
-        public String getSb1() {
+
+    public String getSb1() {
         return mc.getSubject(sbId1).getSubjectName();
     }
 
@@ -148,14 +150,14 @@ public class Student implements Comparable<Student>{
     }
 
     public String getGr() {
-        
+
         return mc.getGroup(grId).getGroupName();
     }
 
     public void setGr(String gr) {
-        this.gr= gr;
+        this.gr = gr;
     }
-     
+
     public int getStudentId() {
         return studentId;
     }
@@ -185,7 +187,7 @@ public class Student implements Comparable<Student>{
     }
 
     public void setGroup(Group group) {
-       this.grId = group.getGroupId();
+        this.grId = group.getGroupId();
     }
 
     public int getSbId1() {

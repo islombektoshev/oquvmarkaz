@@ -1,10 +1,12 @@
 package model.modelController;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Collections;
+import java.util.Properties;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javafx.collections.FXCollections;
@@ -40,14 +42,38 @@ public class ModelController {
     public static final String TAG_oquvchi = "oquvchi";
 
     public static final String NONE_NAME = "NOMALUM";
-    public static File file = new File("markazmalumotlari.xml");
+    public static File FILE = new File("defaultdata.mdf");
+    public static File EMPTYFILE = new File("emptydata.mdf");
 
     static {
+        loadFilePath();
         read();
-        init();
     }
-    
-    
+
+    public static void saveFilePath(File f) {
+        try {
+            FILE = f;
+            Properties p = new Properties();
+            p.setProperty("filepath", f.getAbsolutePath());
+            p.store(new FileOutputStream("apppropertes.properties"), "Filepath");
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ModelController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ModelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public static void loadFilePath() {
+        try {
+            Properties p = new Properties();
+            p.load(new FileInputStream(new File("apppropertes.properties")));
+            FILE = new File(p.getProperty("filepath", FILE.getName()));
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(ModelController.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IOException ex) {
+            Logger.getLogger(ModelController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 
     public static void read() {
         Data.groups.clear();
@@ -56,7 +82,7 @@ public class ModelController {
         try {
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
-            Document doc = builder.parse(file);
+            Document doc = builder.parse(FILE);
 
             Element e = doc.getDocumentElement();
             NodeList tempList = e.getElementsByTagName("fanlar");
@@ -140,7 +166,7 @@ public class ModelController {
     }
 
     private static void init() {
-        
+
     }
 
     public void deletSubject(int id) {
@@ -326,7 +352,6 @@ public class ModelController {
         }
         for (int x = 0; x < Data.students.size(); x++) {
             Data.students.get(x).setStudentId(x);
-            System.out.println(Data.students.get(x).getName() + "\t\t" + x);
         }
     }
 
@@ -335,7 +360,7 @@ public class ModelController {
             Collections.sort(Data.students);
             Collections.sort(Data.groups);
             Collections.sort(Data.subjects);
-
+            
             DocumentBuilderFactory builderFactory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = builderFactory.newDocumentBuilder();
             Document doc = builder.newDocument();
@@ -378,9 +403,11 @@ public class ModelController {
             TransformerFactory factory = TransformerFactory.newInstance();
             Transformer t = factory.newTransformer();
             DOMSource dOMSource = new DOMSource(doc);
-            StreamResult result = new StreamResult(new FileOutputStream(file));
+            StreamResult result = new StreamResult(new FileOutputStream(FILE));
 
             t.transform(dOMSource, result);
+            
+            saveFilePath(FILE);
 
         } catch (ParserConfigurationException | SecurityException | FileNotFoundException ex) {
             Logger.getLogger(ModelController.class.getName()).log(Level.SEVERE, null, ex);
@@ -392,6 +419,12 @@ public class ModelController {
 
     }
 
+    /**
+     * Bu metod Subject lardan biri o'chirilganda Student klasidaki subjectlarni
+     * to'rilab chiqadi yani ochirilgandan keyin student ning sbId1,sbId2,sbId3
+     * lari o'zgartradi chunki bu endi bittaga kam bo'lishi kerak
+     *
+     */
     public void synchronizWithStudentForDeleting__Subject(int i) {
         for (Student x : Data.students) {
             if (x.getSbId1() == i) {
@@ -417,6 +450,12 @@ public class ModelController {
         }
     }
 
+    /**
+     * Bu metod Group lardan biri o'chirilganda Student klasidaki gruhlarni
+     * to'rilab chiqadi yani ochirilgandan keyin student ning grId sini
+     * o'zgartriadi chunki bu endi bittaga kam bo'lishi kerak
+     *
+     */
     public void synchronizWithStudentForDeleting__Group(int i) {
         for (Student x : Data.students) {
             if (x.getGrId() == i) {
@@ -427,5 +466,17 @@ public class ModelController {
                 x.setGrId(x.getGrId() - 1);
             }
         }
+    }
+
+    public static int sizeofStudents() {
+        return Data.students.size();
+    }
+
+    public static int sizeofGroups() {
+        return Data.groups.size();
+    }
+
+    public static int sizeofSubjects() {
+        return Data.subjects.size();
     }
 }

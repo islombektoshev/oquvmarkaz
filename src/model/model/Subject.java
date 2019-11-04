@@ -1,7 +1,7 @@
 package model.model;
 
+public class Subject implements Comparable<Subject> {
 
-public class Subject implements Comparable<Subject>{
     private String subjectName;
     private int subjectId;
 
@@ -9,9 +9,10 @@ public class Subject implements Comparable<Subject>{
         this.subjectName = subjectName;
         this.subjectId = subjectId;
     }
+
     public Subject(String subjectName) {
         this.subjectName = subjectName;
-        this.subjectId  = -1;
+        this.subjectId = -1;
     }
 
     public int getSubjectId() {
@@ -38,15 +39,15 @@ public class Subject implements Comparable<Subject>{
     @Override
     public boolean equals(Object obj) {
         try {
-            return ((Subject) obj).getSubjectId() == subjectId 
+            return ((Subject) obj).getSubjectId() == subjectId
                     || ((Subject) obj).getSubjectName().equalsIgnoreCase(subjectName);
         } catch (Exception e) {
             return false;
         }
-    }    
+    }
 
     @Override
     public int compareTo(Subject o) {
-        return (subjectId>o.subjectId)?1:-1;
+        return (subjectId > o.subjectId) ? 1 : -1;
     }
 }

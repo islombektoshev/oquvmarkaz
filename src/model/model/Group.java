@@ -4,7 +4,8 @@ package model.model;
  *
  * @author Islom
  */
-public class Group implements Comparable<Group>{
+public class Group implements Comparable<Group> {
+
     private String groupName;
     private int groupId;
 
@@ -12,6 +13,7 @@ public class Group implements Comparable<Group>{
         this.groupName = groupName;
         this.groupId = groupId;
     }
+
     public Group(String groupName) {
         this.groupName = groupName;
         this.groupId = -1;
@@ -41,7 +43,7 @@ public class Group implements Comparable<Group>{
     @Override
     public boolean equals(Object obj) {
         try {
-            return ((Group) obj).getGroupId() == groupId  
+            return ((Group) obj).getGroupId() == groupId
                     || ((Group) obj).getGroupName().equals(groupName);
         } catch (Exception e) {
             return false;
@@ -50,7 +52,7 @@ public class Group implements Comparable<Group>{
 
     @Override
     public int compareTo(Group o) {
-        return (groupId>o.getGroupId())?1:-1;
+        return (groupId > o.getGroupId()) ? 1 : -1;
     }
-    
+
 }

@@ -5,6 +5,7 @@ import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.ListView;
@@ -40,7 +41,7 @@ public class CreatationFrameController implements Initializable {
         subjects.addAll(mc.getSubjects());
         grouplist.setItems(groups);
         subjectlist.setItems(subjects);
-        
+
         subjectlist.setEditable(true);
         subjectlist.setCellFactory(TextFieldListCell.forListView(new StringConverter<Subject>() {
 
@@ -55,8 +56,7 @@ public class CreatationFrameController implements Initializable {
                 return subjectlist.getSelectionModel().getSelectedItem();
             }
         }));
-        
-        
+
         grouplist.setEditable(true);
         grouplist.setCellFactory(TextFieldListCell.forListView(new StringConverter<Group>() {
             @Override
@@ -66,18 +66,35 @@ public class CreatationFrameController implements Initializable {
 
             @Override
             public Group fromString(String string) {
-                 grouplist.getSelectionModel().getSelectedItem().setGroupName(string);
-                 return grouplist.getSelectionModel().getSelectedItem();
+                grouplist.getSelectionModel().getSelectedItem().setGroupName(string);
+                return grouplist.getSelectionModel().getSelectedItem();
             }
         }));
+
+        subjectlist.setOnEditCommit(new EventHandler<ListView.EditEvent<Subject>>() {
+
+            @Override
+            public void handle(ListView.EditEvent<Subject> event) {
+                ChiqishSaqlashDialogi.changed();
+            }
+        });
+
+        grouplist.setOnEditCommit(new EventHandler<ListView.EditEvent<Group>>() {
+
+            @Override
+            public void handle(ListView.EditEvent<Group> event) {
+                ChiqishSaqlashDialogi.changed();
+            }
+        });
     }
-    
+
     @FXML
     private void delSbj(ActionEvent event) {
         if (subjectlist.getSelectionModel().getSelectedIndex() > -1) {
             mc.deletSubject(subjectlist.getSelectionModel().getSelectedItem());
             subjects.clear();
             subjects.addAll(Data.subjects);
+            ChiqishSaqlashDialogi.changed();
 
         }
     }
@@ -85,10 +102,11 @@ public class CreatationFrameController implements Initializable {
     @FXML
     private void addsbj(ActionEvent event) {
 
-            if (mc.addSubject(new Subject(tfsubject.getText()))) {
-                subjects.clear();
-                subjects.addAll(Data.subjects);
-                tfsubject.clear();
+        if (mc.addSubject(new Subject(tfsubject.getText()))) {
+            subjects.clear();
+            subjects.addAll(Data.subjects);
+            tfsubject.clear();
+            ChiqishSaqlashDialogi.changed();
         }
 
     }
@@ -99,22 +117,24 @@ public class CreatationFrameController implements Initializable {
             mc.deletGroup(grouplist.getSelectionModel().getSelectedItem());
             groups.clear();
             groups.addAll(Data.groups);
+            ChiqishSaqlashDialogi.changed();
 
         }
     }
 
     @FXML
     private void addGroup(ActionEvent event) {
-        
-            if (mc.addGroup(new Group(tfgroup.getText()))) {
-                groups.clear();
-                groups.addAll(Data.groups);
-                tfgroup.clear();
+
+        if (mc.addGroup(new Group(tfgroup.getText()))) {
+            groups.clear();
+            groups.addAll(Data.groups);
+            tfgroup.clear();
+            ChiqishSaqlashDialogi.changed();
         }
     }
 
     @FXML
     private void nextScreen(ActionEvent event) {
-       SceneController.setScene(getClass().getResource("ScondScreen.fxml"));
+        SceneController.setScene(getClass().getResource("ScondScreen.fxml"));
     }
 }

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><oquvmarkaz xmlns="uri">
+    <fanlar>
+        <fan id="0" name="Matematika"/>
+        <fan id="1" name="Fizika"/>
+        <fan id="2" name="Onatili va Adabiyot"/>
+        <fan id="3" name="Bialogiya"/>
+        <fan id="4" name="Tarix grumanitar"/>
+        <fan id="5" name="English"/>
+        <fan id="6" name="Fransuz"/>
+        <fan id="7" name="Rus tili"/>
+        <fan id="8" name="Kimyo"/>
+    </fanlar>
+    <gruhlar>
+        <guruh id="0" name="A"/>
+        <guruh id="1" name="B"/>
+        <guruh id="2" name="C"/>
+        <guruh id="3" name="D"/>
+    </gruhlar>
+    <oquvchilar>
+    </oquvchilar>
+</oquvmarkaz>
