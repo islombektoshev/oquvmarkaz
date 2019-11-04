@@ -1,0 +1,24 @@
+<oquvmarkaz>
+    <fanlar>
+        <fan name="Matematika"          id="0" seria="fan"/>
+        <fan name="Fizika"              id="1" seria="fan"/>
+        <fan name="Onatili va Adabiyot" id="2" seria="fan"/>
+        <fan name="Bialogiya"           id="3" seria="fan"/>
+        <fan name="Tarix"               id="4" seria="fan"/>
+        <fan name="English"             id="5" seria="fan"/>
+        <fan name="Fransuz"             id="6" seria="fan"/>
+        <fan name="Rus tili"            id="7" seria="fan"/>
+        <fan name="Kimyo"               id="8" seria="fan"/>
+    </fanlar>
+    <gruhlar>
+        <guruh name="A"  id="0" seria="guruh"/>
+        <guruh name="B"  id="1" seria="guruh"/>
+        <guruh name="C"  id="2" seria="guruh"/>
+        <guruh name="D"  id="3" seria="guruh"/>
+    </gruhlar>
+    <oquvchilar>
+        <oquvchi name="Islombek" surename="Toshev" sb1="0" sb2="1" sb3="5" gr="0" id="0"/>
+        <oquvchi name="Bexruz" surename="Mahudov" sb1="0" sb2="1" sb3="5" gr="0" id="1"/>
+        <oquvchi name="Shaxzot" surename="Hotamov" sb1="4" sb2="2" sb3="6" gr="1" id="2"/>
+    </oquvchilar>
+</oquvmarkaz>
